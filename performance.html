@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Ejemplo de performance de jQuery</title>
+</head>
+<body>
+	<ul id="lenguajes">
+		
+	</ul>
+	<script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script>
+		var lenguajes = [
+		'php',
+		'C#',
+		'C++',
+		'Ruby',
+		'Python'
+		]
+
+		/*$.each(lenguajes, function(i, item){
+			var newListItem = "<li>"+item+"</li>"
+			newListItem.appendTo('#lenguajes')
+		})*/
+	
+		var myHTML = "";
+		$.each(lenguajes, function (i, item){
+			myHTML += "<li class=\"lenguaje\">"+item+"</li>";
+		})
+		$('#lenguajes').html(myHTML);
+
+		var lenguajes = $('#lenguajes');
+		var listItems = lenguajes.find('li');
+		//Me guardo el length para no tener que estar consultando siempre cuantas cosas tiene
+		var length = listItems.length;
+		for (var i = 0; i < length; i++){
+			console.log(listItems[i])
+		}
+
+
+		var parent = lenguajes.parent();
+		lenguajes.detach();
+		//Modificamos lenguajes cuantas veces quiera
+
+		parent.append(lenguajes);
+//Me fijo si hay elementos en lenguajes y a partir de ahí hago una animación
+		/*if(lenguajes.length){
+			lenguajes.slideUp();
+		}*/
+
+		//Saber cuantos li hay en lenguajes
+
+		$('#lenguajes').find('li');
+		$('#lenguajes li.lenguaje');
+
+		//$('#lenguajes').find('li').css('color', 'red');
+		$('<style type="text/css">#lenguajes li { color: red }</style>').appendTo('head')
+	</script>
+</body>
+</html>
