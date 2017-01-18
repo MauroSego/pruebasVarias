@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery vs VanillaJS</title>
+</head>
+<body>
+	<button id="boton">Click me!</button>
+	<script
+	  src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script>
+	/*var boton = document.getElementById('boton');
+
+	boton.addEventListener('click', function(ev){
+		var request = new XMLHttpRequest();
+		request.open('GET', 'http://api.tvmaze.com/shows/1', true);
+
+		request.onload = function (){
+			if (request.status >= 200 && request.status < 400){
+				var data = JSON.parse(request.responseText);
+				var p = document.createElement('p');
+				var img = document.createElement('img');
+
+				p.innerHTML = data.name;
+				img.src = data.image.medium;
+
+				document.body.appendChild(p);
+				document.body.appendChild(img);
+			}
+		}
+
+		request.onerror = function (){
+			console.log('se produjo un error')
+		}
+
+		request.send(); 
+	})*/
+
+	var boton = $('#boton');
+	boton.click(function (ev){
+		$.getJSON('http://api.tvmaze.com/shows/1', function(data){
+			console.log(data);
+			var p = $('<p>', {html: data.name})
+			var img = $('<img>', {src: data.image.medium})
+			$('body').append(p, img);
+		})
+	})
+
+	</script>
+</body>
+</html>
+
