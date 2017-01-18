@@ -1,0 +1,6 @@
+{
+  "name": "app",
+  "dependencies": {
+    "tipso": "^1.0.8"
+  }
+}
