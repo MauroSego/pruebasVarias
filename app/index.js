@@ -2,7 +2,7 @@
 Module dependencies
 */
 
-global.jQuery = require('jquery');
+var $ = require('jquery');
 require('tipso');
 
-global.jQuery('.title-tipso').tipso()
+$('.title-tipso').tipso()
